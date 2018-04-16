@@ -4,15 +4,16 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 import App from './App';
-import reducer from './reducer';
+import { calculate } from './reducer';
 
-
-const store = createStore(reducer);
-
-const app = (
-  <Provider store={store}>
-    <App />
-  </Provider>
+const store = createStore(
+  calculate,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // debug 용
 );
 
-render(app, document.getElementById('app'));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('app')
+);

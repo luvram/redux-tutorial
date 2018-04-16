@@ -6,6 +6,6 @@ export function calculate(state = { name: 'boram', age: 1 }, action) {
       const newState = Object.assign({}, state, { age: state.age + action.age });
       return newState;
     default:
-      return state
+      return state;
   }
 }
